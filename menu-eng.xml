@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu>
+  <item>
+    <name>Home</name>
+  </item>
+  <item>
+    <name>Our offer</name>
+  </item>
+  <item>
+    <name>Contact</name>
+  </item>
+  <item>
+    <name>Sign In</name>
+  </item>
+</menu>
