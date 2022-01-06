@@ -10,8 +10,6 @@
         
         <script src="language.js"></script>
         <script src="style-script.js" defer></script>
-
-        <script> localStorage.setItem('locale','pl'); </script>
         
     </head>
     <body ng-app="mySPA">

@@ -8,7 +8,7 @@ spapp.config(function($routeProvider) {
         templateUrl: "offer.php",
     })
     .when("/contact", {
-        templateUrl: "offer.php",
+        templateUrl: "contact.php",
     })
     .when("/sign-in", {
         templateUrl: "sign-in.php",
