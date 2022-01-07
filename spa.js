@@ -39,6 +39,9 @@ spapp.config(function($routeProvider) {
     .when("/sign-in", {
         templateUrl: "sign-in.php",
     })
+    .when("/sign-up", {
+        templateUrl: "sign-up.php",
+    })
     .when("/car", {
         templateUrl: "car.php",
     })

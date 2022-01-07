@@ -15,7 +15,7 @@ $(document).ready(function () {
                 result += '<td class="p-2 whitespace-nowrap"> <div class="text-center text-lg text-blue-900">' + models[i].model + '</div> </td>';
                 result += '<td class="p-2 whitespace-nowrap"> <div class="text-center text-lg text-blue-900">' + models[i].distance + '</div> </td>';
                 result += '<td class="p-2 whitespace-nowrap"> <div class="text-center text-lg text-blue-900">' + models[i].price + '</div> </td>';
-                result += '<td class="p-2 whitespace-nowrap"> <a href="'+ models[i].href + '" class="block"> <div class="text-center"><button class="h-10 px-5 m-2 text-white text-lg transition-colors duration-150 bg-blue-600 rounded-lg focus:shadow-outline hover:bg-blue-700"> More info </button></div> </a> </td>';
+                result += '<td class="p-2 whitespace-nowrap"> <a href="'+ models[i].href +'" class="block"> <div class="text-center"><button class="h-10 px-5 m-2 text-white text-lg transition-colors duration-150 bg-blue-600 rounded-lg focus:shadow-outline hover:bg-blue-700"> More info </button></div> </a> </td>';
                 result += '</tr>';
             }
             result += '</tbody> </table>';
