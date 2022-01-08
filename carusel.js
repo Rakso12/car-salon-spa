@@ -24,7 +24,7 @@ $(document).ready(function () {
     }
 
     function photo_change() {
-        $("#carusel").fadeOut(3000, photo_replace);
-        $("#carusel").fadeIn(3000);
+        $("#carusel").fadeOut(2000, photo_replace);
+        $("#carusel").fadeIn(2000);
       }
 });

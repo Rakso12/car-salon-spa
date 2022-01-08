@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lokacje>
+    <lokacja>
+        <lat>
+            50.03840
+        </lat>
+        <lng>
+            21.98193
+        </lng>
+    </lokacja>
+    <lokacja>
+        <lat>
+            52.27414
+        </lat>
+        <lng>
+            21.01583
+        </lng>
+    </lokacja>
+    <lokacja>
+        <lat>
+            51.24924
+        </lat>
+        <lng>
+            22.56575
+        </lng>
+    </lokacja>
+    <lokacja>
+        <lat>
+            51.75506
+        </lat>
+        <lng>
+            19.44184
+        </lng>
+    </lokacja>
+    <lokacja>
+        <lat>
+            50.29016
+        </lat>
+        <lng>
+            21.43266
+        </lng>
+    </lokacja>
+</lokacje>

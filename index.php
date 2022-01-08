@@ -1,3 +1,6 @@
+<?php
+    include('secure.php')
+?>
 <!DOCTYPE html>
 <html lang="pl" dir="ltr">
     <head>
@@ -8,11 +11,20 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        
         <script src="language.js"></script>
         <script src="offer.js" defer></script>
         <script src="carusel.js"></script>
         <script src="style-script.js" defer></script>
-        
+       
+        <style>
+            #map {
+                height: 600px;
+                width: 100%;
+            }
+        </style>
+
     </head>
     <body ng-app="mySPA">
         <nav class="z-40 inset-x-0 top-0 fixed flex items-center justify-between flex-wrap bg-slate-50 p-3 shadow-md">
@@ -78,16 +90,43 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="inline-block align-middle px-4">
-                            <a href="#!sign-in" class="inline-block text-sm px-4 py-1 lg:items-center border rounded text-white border-white bg-blue-900 
-                            hover:border-blue-900 hover:text-blue-900 hover:bg-white mt-4 lg:mt-0
-                            "> 
-                                <svg class="lg:inline-block h-8 w-8"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                                </svg>
-                                <span id="nav-sign-in"> Zaloguj </span> 
-                            </a>
-                        </div>
+                        <?php
+                            if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+                                echo ('
+                                    <div class="inline-block align-middle px-4">
+                                        <a href="#!sign-in" class="inline-block text-sm px-4 py-1 lg:items-center border rounded text-white border-white bg-blue-900 
+                                        hover:border-blue-900 hover:text-blue-900 hover:bg-white mt-4 lg:mt-0
+                                        "> 
+                                            <svg class="lg:inline-block h-8 w-8"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                            </svg>
+                                            <span id="nav-sign-in"> Zaloguj </span> 
+                                        </a>
+                                    </div>
+                                ');
+                            }
+                            else{
+                                echo ('
+                                    <a href="#!profile">
+                                    <div class="relative inline-block">
+                                        <img class="inline-block object-cover w-12 h-12 rounded-full" src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Profile image"/>
+                                        <span class="absolute bottom-0 right-0 inline-block w-3 h-3 bg-green-600 border-2 border-white rounded-full"></span>
+                                    </div>
+                                    </a>
+                                    <div class="inline-block align-middle px-4">
+                                        <a href="logoutAction.php" class="inline-block text-sm px-4 py-1 lg:items-center border rounded text-white border-white bg-blue-900 
+                                        hover:border-blue-900 hover:text-blue-900 hover:bg-white mt-4 lg:mt-0
+                                        "> 
+                                            <svg class="lg:inline-block h-8 w-8"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                            </svg>
+                                            <span id="nav-sign-out"> Wyloguj</span> 
+                                        </a>
+                                    </div>
+                                    
+                                ');
+                            }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -97,6 +136,12 @@
         <div ng-view >
             
         </div>
+        <?php
+            if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){}
+            else{
+                require_once('Controler/chart_controller.php');
+            }
+        ?>
 
         <footer class="min-w-screen p-10 bg-blue-900">
             <div class="relative text-white justify-center text-center object-center">

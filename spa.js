@@ -20,11 +20,92 @@ function getModels() {
         $('#models_table').html(result);
     });
 };
+function loadXML() {
+  loadXMLFilename("lokacje.xml");
+}
 
+
+function loadXMLFilename(filename) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+          initMap(this)
+      }
+  };
+  xmlhttp.open("GET", filename, true);
+
+  xmlhttp.send();
+}
+
+function initMap(xml) {
+  let reponse = xml.responseXML;
+  let lokacje = reponse.getElementsByTagName("lokacja");
+  Lokacje = [];
+  for (i = 0; i < lokacje.length; i++) {
+    Lokacje[i] = {
+          lat: Number(lokacje[i].getElementsByTagName("lat")[0].childNodes[0].nodeValue) ,
+          lng: Number(lokacje[i].getElementsByTagName("lng")[0].childNodes[0].nodeValue)
+      }
+  }
+  const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 7,
+      center: Lokacje[2],
+  });
+  for (i = 0; i < Lokacje.length; i++) {
+      new google.maps.Marker({
+          position: Lokacje[i],
+          map: map,
+      });
+  }
+}
+
+function getMap(){
+    $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDVMG5B8JrvyGFtsYFDU9fJqfcgY4fwAT4&callback=loadXML&v=weekly");
+}
+
+function getStyle(){
+    $.getScript("contact-style.js");
+}
+
+function getChart(){
+    $.getScript("chart.js");
+}
+
+
+function getCookie(cookieName) {
+    var name = cookieName + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var cookies = decodedCookie.split(";");
+    var cookieValue = "";
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        while (cookie.charAt(0) == " ") {
+            cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(name) == 0) {
+            cookieValue = cookie.substring(name.length, cookie.length);
+            return cookieValue;
+        }
+    }
+    return cookieValue;
+}
+
+function getUser(){
+    let name = getCookie("user-name");
+    let email = getCookie("user-email");
+    let username = getCookie("user-username");
+
+    document.querySelector("#user-name").innerHTML = name;
+    document.querySelector("#user-username").innerHTML = username;
+    document.querySelector("#user-email").innerHTML = email;
+}
 
 var spapp = angular.module("mySPA", ["ngRoute"]);
 spapp.config(function($routeProvider) {
     $routeProvider
+    .when("", {
+        templateUrl: "home.php",
+    })
     .when("/home", {
         templateUrl: "home.php",
     })
@@ -35,6 +116,8 @@ spapp.config(function($routeProvider) {
     })
     .when("/contact", {
         templateUrl: "contact.php",
+        controller: "MapCtrl",
+        controllerAs:"map"
     })
     .when("/sign-in", {
         templateUrl: "sign-in.php",
@@ -44,6 +127,11 @@ spapp.config(function($routeProvider) {
     })
     .when("/car", {
         templateUrl: "car.php",
+    })
+    .when("/profile", {
+        templateUrl: "profile.php",
+        controller: "UserCtrl",
+        controllerAs:"user"
     })
     .when("/error", {
         templateUrl: "error.php",
@@ -55,4 +143,16 @@ spapp.controller('ModelCtrl', ['$routeParams', function ModelCtrl($route, $route
     this.name = 'ModelCtrl';
     this.params = $routeParams;
     getModels();  
+}]);
+spapp.controller('MapCtrl', ['$routeParams', function MapCtrl($route, $routeParams, $location){
+  this.name = 'MapCtrl';
+  this.params = $routeParams;
+  getMap();
+  getStyle(); 
+}]);
+spapp.controller('UserCtrl', ['$routeParams', function UserCtrl($route, $routeParams, $location){
+    this.name = 'UserCtrl';
+    this.params = $routeParams;
+    getUser();  
+    //getChart();
 }]);

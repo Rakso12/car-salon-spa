@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <div class="mx-auto my-40 flex-initial w-96 h-50 items-center justify-center">
     <div class="px-14 py-16 mt-4 text-left bg-gray-50 shadow-lg">
         <div class="container max-w-screen-lg mx-auto pb-10 flex justify-center scale-150">
@@ -6,26 +10,36 @@
                     <path fill="#" id="svg_2"/>
                 </svg>
         </div>
-        <form action="">
+        <form action="loginAction.php" method="POST">
             <div>
                 <div>
                     <label class="block" for="email">Email<label>
-                    <input type="text" placeholder="Email"
+                    <input type="text" placeholder="Email" name="uName"
                         class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
-                    <span class="text-xs tracking-wide text-red-600">Email field is required </span>
                 </div>
                 <div class="mt-4">
                     <label class="block">Password<label>
-                    <input type="password" placeholder="Password"
+                    <input type="password" placeholder="Password" name="pass" 
                         class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
-                    <span class="text-xs tracking-wide text-red-600">Password is required </span>
+                    
                 </div>
                 <div class="flex items-baseline justify-between">
                     <button class="px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Login</button>
                     
                     <a href="#!sign-up" class="text-sm text-blue-600 hover:underline">Make a new account</a>
                 </div>
+                <span class="text-xs tracking-wide text-red-600" id="alert">
+                <?php 
+                    if (!isset($_COOKIE['info-login'])) {
+                        
+                    }
+                    else{
+                        echo $_COOKIE['info-login'];
+                    }
+                    ?>
+                </span>
             </div>
         </form>
+        <button></button>
     </div>
 </div>

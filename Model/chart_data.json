@@ -1,0 +1,14 @@
+{
+    "mitsubishi": {
+        "model": "Colt",
+        "visits": 14
+    },
+    "Seat": {
+        "model": "Ibiza",
+        "visits": 12
+    },
+    "Lamborgini": {
+        "model": "Speed 30",
+        "visits": 7
+    }
+}
