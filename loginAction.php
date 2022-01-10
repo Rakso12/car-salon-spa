@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Check if uName is empty
     if(empty(trim($_POST["uName"]))){
-        $username_err = "Please enter uName.";
+        $username_err = "Please enter user name.";
     } else{
         $uName = trim($_POST["uName"]);
     }
@@ -61,7 +61,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["id"] = $id;
                             $_SESSION["uName"] = $uName;  
                             setcookie("user-username", $row['user']);
-                            setcookie("user-name", $row['imie'] . ' ' . $row['nazwisko']);
+                            $tmp = $row['imie'] . '&nbsp' . $row['nazwisko'];
+                            setcookie("user-name", $tmp);
                             setcookie("user-email", $row['email']);                          
                             setcookie("info-login", "");
                             // Redirect user to welcome page
@@ -77,7 +78,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     }
                 } else{
                     // Username doesn't exist, display a generic error message
-                    $login_err = "Invalid uName or password.";
+                    $login_err = "Invalid user name or password.";
                     setcookie("info-login", $login_err);
                     header("Location: http://localhost/carsalon/#!/sign-in");
                 }

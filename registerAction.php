@@ -8,48 +8,46 @@ $dbTableName = "uzytkownicy";
 try {
     $connection = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    $error = "";
+
     if(empty(trim($_POST['fName']))){
-        $fErr = "Please enter a first name.";
+        $error .= "Please enter a first name. ";
     }
     else{
         if(preg_match('/^[a-zzżźćńółęąśŻŹĆĄŚĘŁÓŃA-Z]+$/', trim($_POST["fName"]))){
             $fNamePost = trim($_POST['fName']);
         }
         else{
-            $fErr = "Please enter correct first name.";
+            $error .= "Please enter correct first name. ";
         }
     }
 
     if(empty(trim($_POST['lName']))){
-        $lErr = "Please enter a last name.";
+        $error .=  "Please enter a last name. ";
     }
     else{
         if(preg_match('/^[a-zzżźćńółęąśŻŹĆĄŚĘŁÓŃA-Z]+$/', trim($_POST["lName"]))){
             $lNamePost = trim($_POST['lName']);
         }
         else{
-            $lErr = "Please enter correct last name.";
+            $error .= "Please enter correct last name. ";
         }
     }
 
-    if(empty(trim($_POST['uName']))){
-        $lErr = "Please enter a user name.";
+    if(empty(trim($_POST['uName']))) {
+        $error .=  "Please enter a user name. ";
     }
     else{
-        if(preg_match('/^[a-zzżźćńółęąśŻŹĆĄŚĘŁÓŃA-Z0-9_]+$/', trim($_POST["uName"]))){
-            $uNamePost = trim($_POST['uName']);
-        }
-        else{
-            $lErr = "Please enter correct user name.";
-        }
+        $uNamePost = trim($_POST['uName']);
     }
 
     if(empty(trim($_POST['email']))) {
-        $eErr = "Please enter a email.";
+        $error .= "Please enter a email. ";
     }
     else{
         if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            $emailErr = "Invalid email format";
+            $error .= "Invalid email format. ";
         }
         else{
             $emailPost = $_POST['email'];
@@ -57,19 +55,19 @@ try {
     }
 
     if(empty(trim($_POST['pass'])) || empty(trim($_POST['rpass']))){
-        $pConfirmErr = "Please enter a password.";
+        $error .= "Please enter a password. ";
     }
     else{
         if($_POST['pass'] == $_POST['rpass']){
             $passPost = $_POST['pass'];
         }
         else {
-            $pConfirmErr = "Please enter corect password.";
+            $error .= "Please enter corect password. ";
         }
     }
 
 
-    if(empty($fErr) && empty($lErr) && empty($eErr) && empty($pErr) && empty($pConfirmErr))
+    if($error == "")
     {
         $sql = "INSERT INTO {$dbTableName}(imie, nazwisko, email, user, password) VALUES('{$fNamePost}', '{$lNamePost}', '{$emailPost}', '{$uNamePost}','{$passPost}')";
         $connection->exec($sql);
@@ -79,8 +77,7 @@ try {
         header("Location: http://localhost/carsalon/#!/sign-in");
     }
     else {
-        $message = "Wrong data";
-        setcookie("info", $message);
+        setcookie("info", $error);
         header("Location: http://localhost/carsalon/#!/sign-up");
     }
 

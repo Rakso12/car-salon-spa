@@ -6,7 +6,7 @@ $(document).ready(function () {
         $.getJSON(url, function (data) {
 
             let models = data.models;
-            let result = '<table class="table-auto w-full"> <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50"> <tr> <th class="p-2 whitespace-nowrap"> <div class="font-semibold text-center">Photo</div> </th> <th class="p-2 whitespace-nowrap"> <div class="font-semibold text-center">Make</div> </th> <th class="p-2 whitespace-nowrap"> <div class="font-semibold text-center">Model</div> </th> <th class="p-2 whitespace-nowrap"> <div class="font-semibold text-center">Distance</div> </th> <th class="p-2 whitespace-nowrap"> <div class="font-semibold text-center">Price</div> </th> <th class="p-2 whitespace-nowrap"> <div class="font-semibold text-center"> Show info </div> </th> </tr> </thead><tbody class="text-sm divide-y divide-gray-100">';
+            let result = '<table class="table-auto w-full"> <thead class="text-xs font-semibold uppercase text-blue-900 bg-gray-50"> <tr> <th class="p-2 whitespace-nowrap"> <div class="font-semibold text-center">Photo</div> </th> <th class="p-2 whitespace-nowrap"> <div class="font-semibold text-center">Make</div> </th> <th class="p-2 whitespace-nowrap"> <div class="font-semibold text-center">Model</div> </th> <th class="p-2 whitespace-nowrap"> <div class="font-semibold text-center">Distance</div> </th> <th class="p-2 whitespace-nowrap"> <div class="font-semibold text-center">Price</div> </th> <th class="p-2 whitespace-nowrap"> <div class="font-semibold text-center"> Show info </div> </th> </tr> </thead><tbody class="text-sm divide-y divide-gray-100">';
             for (let i = 0; i < models.length; i++)
             {
                 result += '<tr>';

@@ -5,6 +5,14 @@
 <html lang="pl" dir="ltr">
     <head>
         <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width">
+
+        <meta
+            name="description"
+            content="CarDelivery is the leading digital marketplace for the automotive industry that connects car buyers with sellers. 
+            Launched in 2021, the Rzeszow-based company provides buyers with the data, 
+            resources and digital tools they need to make informed buying decisions and seamlessly connect with car sellers.">
+
         <title> PHP -Single Page Application </title>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-route.js"></script>
@@ -188,13 +196,13 @@
                 </div>
                 <div class="block justify-center text-center">
                     <div class="text-lg lg:flex-grow p-10">
-                        <a href="#!home" id="nav-home" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:font-medium mr-4">
+                        <a href="#!home" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:font-medium mr-4">
                             Start
                         </a>
-                        <a href="#!offer" id="nav-offer" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:font-medium mr-4">
+                        <a href="#!offer" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:font-medium mr-4">
                             Nasza Oferta
                         </a>
-                        <a href="#!contact" id="nav-contact" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:font-medium">
+                        <a href="#!contact" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:font-medium">
                             Kontakt
                         </a>
                     </div>

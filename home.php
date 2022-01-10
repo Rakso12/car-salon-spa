@@ -24,7 +24,7 @@
                 <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-md">
                     <div class="p-4 m-auto bg-blue-200">
                         <div class="inline-block">
-                            <img class="inline object-cover w-16 h-16 mr-2 rounded-full" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Profile image"/>               
+                            <img class="inline object-cover w-16 h-16 mr-2 rounded-full" width="64" height="64" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Profile image"/>               
                         </div>
                         <div class="inline-block text-2xl"> 
                             Easton Thompson
@@ -39,7 +39,7 @@
                 <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-md">
                     <div class="p-4 m-auto bg-blue-200">
                         <div class="inline-block">
-                            <img class="inline object-cover w-16 h-16 mr-2 rounded-full" src="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Profile image"/>               
+                            <img class="inline object-cover w-16 h-16 mr-2 rounded-full" width="64" height="64" src="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Profile image"/>               
                         </div>
                         <div class="inline-block text-2xl"> 
                             Hailey Roberts
@@ -54,7 +54,7 @@
                 <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-md">
                     <div class="p-4 m-auto bg-blue-200">
                         <div class="inline-block">
-                            <img class="inline object-cover w-16 h-16 mr-2 rounded-full" src="https://images.pexels.com/photos/952005/pexels-photo-952005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Profile image"/>               
+                            <img class="inline object-cover w-16 h-16 mr-2 rounded-full" width="64" height="64" src="https://images.pexels.com/photos/952005/pexels-photo-952005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Profile image"/>               
                         </div>
                         <div class="inline-block text-2xl"> 
                             Sadie Smith
@@ -69,7 +69,7 @@
                 <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-md">
                     <div class="p-4 m-auto bg-blue-200">
                         <div class="inline-block">
-                            <img class="inline object-cover w-16 h-16 mr-2 rounded-full" src="https://images.pexels.com/photos/1484794/pexels-photo-1484794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Profile image"/>               
+                            <img class="inline object-cover w-16 h-16 mr-2 rounded-full" width="64" height="64" src="https://images.pexels.com/photos/1484794/pexels-photo-1484794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Profile image"/>               
                         </div>
                         <div class="inline-block text-2xl"> 
                             Miles Robinson

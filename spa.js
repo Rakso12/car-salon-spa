@@ -55,6 +55,7 @@ function initMap(xml) {
       new google.maps.Marker({
           position: Lokacje[i],
           map: map,
+          icon: 'car_pin.png',
       });
   }
 }
@@ -103,7 +104,7 @@ function getUser(){
 var spapp = angular.module("mySPA", ["ngRoute"]);
 spapp.config(function($routeProvider) {
     $routeProvider
-    .when("", {
+    .when("/", {
         templateUrl: "home.php",
     })
     .when("/home", {
@@ -153,6 +154,5 @@ spapp.controller('MapCtrl', ['$routeParams', function MapCtrl($route, $routePara
 spapp.controller('UserCtrl', ['$routeParams', function UserCtrl($route, $routeParams, $location){
     this.name = 'UserCtrl';
     this.params = $routeParams;
-    getUser();  
-    //getChart();
+    getUser();
 }]);
